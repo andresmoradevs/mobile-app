@@ -3,6 +3,7 @@
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
+
     <ion-title>{{ folder }}</ion-title>
   </ion-toolbar>
 </ion-header>
@@ -15,7 +16,14 @@
   </ion-header>
 
   <div id="container">
-    <strong class="capitalize">{{ folder }}</strong>
-    <p>Explore <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+
+    <!-- <ion-slides [options]="slideOpts">
+      <ion-slide *ngFor="let img of banners">
+        <img [src]=img class="d-block w-100">
+      </ion-slide>
+    </ion-slides> -->
+
+    <!-- <strong class="capitalize">{{ folder }}</strong> -->
+    
   </div>
 </ion-content>
