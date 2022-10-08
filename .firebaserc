@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "xmobile-appx": {
+      "hosting": {
+        "app": [
+          "xmobile-appx"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "xmobile-appx"
+  }
+}

@@ -1,9 +1,38 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>login</ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-content class="ion-padding">
 
-<ion-content>
+  <ion-slides [options]="slideOpts">
+    <ion-slide *ngFor="let img of banners">
+      <img [src]=img class="d-block w-100">
+    </ion-slide>
+  </ion-slides>
+
+  <ion-header>
+    <ion-toolbar color="primary">
+      <ion-title>Ingresar Usuario</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <form [formGroup]="form" novalidate (ngSubmit)="login()">
+    <ion-list style="padding: 15px;">
+      <br>
+      <br>
+      <ion-item style="width: 60%;">
+        <ion-label position="stacked">Usuario</ion-label>
+        <ion-input placeholder="nombre-usuario@mail.com" formControlName="email"></ion-input>
+      </ion-item>
+
+      <ion-item style="width: 60%;">
+        <ion-label position="stacked">Contraseña</ion-label>
+        <ion-input type="password" placeholder="**********" formControlName="password"></ion-input>
+      </ion-item>
+      <br>
+      <br>
+      <!-- <ion-item-divider></ion-item-divider> -->
+      
+      <ion-button type="submit" >Iniciar Sesión</ion-button>
+      <ion-button routerLink="/register" type="button">Registrarse</ion-button>
+    </ion-list>
+
+  </form>
 
 </ion-content>
