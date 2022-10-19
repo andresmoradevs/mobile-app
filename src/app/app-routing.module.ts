@@ -100,6 +100,14 @@ const routes: Routes = [
     canActivate: [ AuthGuard ],
     data: { authGuardPipe : redirectLoggedInToHome },
     loadChildren: () => import('./pages/register/register.module').then( m => m.RegisterPageModule)
+  },
+  {
+    path: 'init-page',
+    loadChildren: () => import('./pages/init-page/init-page.module').then( m => m.InitPagePageModule)
+  },
+  {
+    path: 'recoverpass',
+    loadChildren: () => import('./pages/recoverpass/recoverpass.module').then( m => m.RecoverpassPageModule)
   }
 ];
 

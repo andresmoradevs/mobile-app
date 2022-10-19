@@ -1,0 +1,21 @@
+<ion-content>
+  <ion-card>
+    <ion-buttons>
+      <ion-icon routerLink="/login" class="arrow-back" name="arrow-back-outline"></ion-icon>
+    </ion-buttons>
+
+    <ion-card-header>
+
+      <ion-card-title>Recuperar contraseña</ion-card-title>
+      <ion-card-subtitle>Se enviará un correo para reestablecer la contraseña por este medio, por favor verifique la carpeta de spam.</ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-item>
+        <ion-label class="label-recover" position="stacked">Ingrese su usuario o correo electronico aqui</ion-label>
+        <ion-input [(ngModel)]="remail" placeholder="usuario@mail.com"></ion-input>
+      </ion-item>
+      <ion-button (click)="onReset(remail)">Reestablecer</ion-button>
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>

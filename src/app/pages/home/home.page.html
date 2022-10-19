@@ -1,20 +1,22 @@
 <ion-header [translucent]="true">
+
   <ion-toolbar>
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
     <ion-title>Inicio</ion-title>
   </ion-toolbar>
+
 </ion-header>
+
 <ion-content>
+
   <ion-slides [options]="slideOpts">
     <ion-slide *ngFor="let img of banners">
       <img [src]=img class="d-block w-100">
     </ion-slide>
   </ion-slides>
 
-  
-  
   <ion-grid>
     <ion-row>
       <ion-col>
@@ -43,5 +45,11 @@
       </ion-col>
     </ion-row>
   </ion-grid>
-  <ion-item-divider></ion-item-divider>
+
+  <app-news></app-news>
+
+  <ion-img src="https://img.freepik.com/vector-gratis/aprende-banner-inicio-iconos-educacion_1361-2406.jpg?w=996&t=st=1665600054~exp=1665600654~hmac=55e84c69efc828e97b20d484416c1e6f4e5713ff297b3a1d9c59247380cd2cb6" ></ion-img>
+
+  
+
 </ion-content>

@@ -36,18 +36,18 @@ export class AppComponent {
       message: 'Esta seguro que desea cerrar sesión?',
       buttons: [
         {
-          text: 'Cancel',
+          text: 'No',
           role: 'cancel',
           handler: () => {
             console.log('Cancel clicked');
           }
         },
         {
-          text: 'Buy',
+          text: 'Si',
           role: 'accept',
-          handler: data => {
+          handler: () => {
             this.auth.logout();
-            // this.router.navigate(['/login']);
+            this.router.navigate(['/login']);
           }
         }
       ]
