@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router, ActivatedRoute } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { FormBuilder, Validators } from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
 import { AlertController } from '@ionic/angular';
@@ -13,6 +13,9 @@ import { AlertController } from '@ionic/angular';
 
 export class RegisterPage implements OnInit {
 
+  user = [];
+  typeUx: string;
+
   slideOpts = {
     initialSlide: 1,
     slidesPerView: 1,
@@ -21,9 +24,9 @@ export class RegisterPage implements OnInit {
     autoplay: {
       delay: 4000
     }
-  }
+  };
 
-  banners: string[] = ["assets/img/banners_1.jpg", "assets/img/banners_2.jpg", "assets/img/banners_3.jpg"]
+  banners: string[] = ['assets/img/banners_1.jpg', 'assets/img/banners_2.jpg', 'assets/img/banners_3.jpg'];
 
   form = this.formBuilder.group({
     name: ['', [Validators.required]],
@@ -31,43 +34,40 @@ export class RegisterPage implements OnInit {
     password: ['', [ Validators.min(8), Validators.required]],
 
   });
-  
-  constructor(private formBuilder: FormBuilder, 
-    private alertController: AlertController,
-    private router: Router,
-    private authService: AuthService) { }
 
-  ngOnInit() {
-  }
+  constructor(
+    // public usr: User,
+    private route: ActivatedRoute,
+    private formBuilder: FormBuilder,
+    private alertController: AlertController,
+    private authService: AuthService) {
+      this.typeUx = this.route.snapshot.paramMap.get('typeUser');
+      // usr.typeUx = this.typeUx;
+      // console.log(this.typeUx);
+
+     }
+
+  ngOnInit() {}
   async register() {
-    if(this.form.valid) {
-      const { email, password } = this.form.getRawValue();
-      this.authService.register( email, password);
-    } else {
-      const alert = this.alertController.create({
-        message: 'Uno o más datos estan incorrectos!',
-        buttons: ['OK'],
-      });
-      (await alert).present();
+    try {
+
+      if(this.form.valid) {
+        const { email, password } = this.form.getRawValue();
+        this.authService.createUser();
+        // this.authService.saveUser(this.user);
+        this.authService.register( email, password);
+      } else {
+        const alert = this.alertController.create({
+          message: 'Uno o más datos estan incorrectos!',
+          buttons: ['OK'],
+        });
+        (await alert).present();
+      }
+    } catch (error) {
+      console.log(error);
+
     }
-    // if(this.form.valid) {
-    //   const { email, password } = this.form.getRawValue();
-    //   console.log(email, password);
-    //   this.authService.register(email, password)
-    //     .then((user) => {
-    //       this.router.navigate(['/inicio']);
-    //   }).catch(err => {
-    //     this.router.navigate(['/register']);
-    //   }); 
-    // } else {
-    //   // this.form.markAllAsTouched();
-    //   this.router.navigate(['/register']);
-    //   const alert = this.alertController.create({
-    //     message: 'Uno o más datos estan incorrectos!',
-    //     buttons: ['OK'],
-    //   });
-    //   (await alert).present();
-    // }
+
   }
 
 }

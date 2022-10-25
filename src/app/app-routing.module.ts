@@ -2,13 +2,13 @@ import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { AuthGuard, redirectUnauthorizedTo, redirectLoggedInTo } from '@angular/fire/auth-guard';
 
-const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo(['login']);
+const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo(['init']);
 const redirectLoggedInToHome = () => redirectLoggedInTo(['/inicio']);
 
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'login',
+    redirectTo: 'init',
     pathMatch: 'full'
   },
   {
@@ -90,20 +90,20 @@ const routes: Routes = [
     loadChildren: () => import('./pages/news/news.module').then( m => m.NewsPageModule)
   },
   {
-    path: 'login',
+    path: 'login/:typeUser',
     canActivate: [ AuthGuard ],
     data: { authGuardPipe : redirectLoggedInToHome },
     loadChildren: () => import('./pages/login/login.module').then( m => m.LoginPageModule)
   },
   {
-    path: 'register',
+    path: 'register/:typeUser',
     canActivate: [ AuthGuard ],
     data: { authGuardPipe : redirectLoggedInToHome },
     loadChildren: () => import('./pages/register/register.module').then( m => m.RegisterPageModule)
   },
   {
-    path: 'init-page',
-    loadChildren: () => import('./pages/init-page/init-page.module').then( m => m.InitPagePageModule)
+    path: 'init',
+    loadChildren: () => import('./pages/init/init.module').then( m => m.InitPageModule)
   },
   {
     path: 'recoverpass',

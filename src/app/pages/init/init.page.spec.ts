@@ -1,7 +1,7 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
 
-import { InitPagePage } from './init-page.page';
+import { InitPagePage } from './init.page';
 
 describe('InitPagePage', () => {
   let component: InitPagePage;

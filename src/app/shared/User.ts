@@ -1,5 +1,8 @@
 export class User {
-    $uid: string;
-    name: string;
-    email: string;
+  email: string;
+  idUx: string;
+  lastName?: string;
+  name?: string;
+  phone?: string;
+  typeUx?: string;
 }

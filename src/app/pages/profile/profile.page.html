@@ -3,7 +3,7 @@
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
-    <ion-title>Profile</ion-title>
+    <ion-title>Perfil</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -16,10 +16,35 @@
         </ion-avatar>
       </ion-col>
     </ion-row>
-
-    
-
+    <ion-row>
+      <ion-item class="labels-profile">
+        <ion-label color="medium">Nombre</ion-label>
+        <ion-input placeholder="Pedro"></ion-input>
+      </ion-item>
+    </ion-row>
+    <ion-row>
+      <ion-item class="labels-profile">
+        <ion-label color="medium">Apellido</ion-label>
+        <ion-input placeholder="Infante"></ion-input>
+      </ion-item>
+    </ion-row>
+    <ion-row>
+      <ion-item class="labels-profile">
+        <ion-label color="medium">Teléfono</ion-label>
+        <ion-input placeholder="555 555 555 "></ion-input>
+      </ion-item>
+    </ion-row>
+    <ion-row>
+      <ion-item class="labels-profile">
+        <ion-label color="medium">Email</ion-label>
+        <ion-input placeholder="pedro@email.com"></ion-input>
+      </ion-item>
+    </ion-row>
+    <ion-row>
+      <ion-buttons>
+        <ion-button color="secondary">Editar</ion-button>
+        <ion-button color="success">Guardar</ion-button>
+      </ion-buttons>
+    </ion-row>
   </ion-grid>
-  
-  
 </ion-content>

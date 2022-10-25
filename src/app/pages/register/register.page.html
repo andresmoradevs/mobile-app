@@ -7,23 +7,22 @@
   </ion-slides>
 
   <ion-header>
-    <ion-toolbar color="primary">
+    <ion-toolbar color="primary" class="toolbar-register-title">
       <ion-title>Registrar usuario</ion-title>
     </ion-toolbar>
   </ion-header>
 
   <form [formGroup]="form" novalidate (ngSubmit)="register()">
     <ion-list style="padding: 15px;">
-      <br>
-      <br>
-      <!-- <ion-item style="width: 60%;">
+
+      <ion-item style="width: 60%;">
         <ion-label position="stacked">Nombre</ion-label>
-        <ion-input placeholder="Juan Perez..." formControlName="name"></ion-input>
-      </ion-item> -->
+        <ion-input placeholder="Ingresar aqui el nombre" formControlName="name"></ion-input>
+      </ion-item>
 
       <ion-item style="width: 60%;">
         <ion-label position="stacked">Usuario</ion-label>
-        <ion-input placeholder="nombre-usuario@mail.com" formControlName="email"></ion-input>
+        <ion-input placeholder="usuario@mail.com" formControlName="email"></ion-input>
       </ion-item>
 
       <ion-item style="width: 60%;">
@@ -39,7 +38,7 @@
       <br>
       <!-- <ion-item-divider></ion-item-divider> -->
       <ion-button type="submit" >Registrarse</ion-button>
-      <ion-button routerLink="/login" type="button">Ya estoy registrado</ion-button>
+      <ion-button routerLink="/login/{{ typeUx }}" type="button">Ya estoy registrado</ion-button>
     </ion-list>
 
   </form>

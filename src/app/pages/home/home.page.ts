@@ -15,9 +15,9 @@ export class HomePage implements OnInit {
     autoplay: {
       delay: 4000
     }
-  }
+  };
 
-  banners: string[] = ["assets/img/banners_1.jpg", "assets/img/banners_2.jpg", "assets/img/banners_3.jpg"]
+  banners: string[] = ['assets/img/banners_1.jpg', 'assets/img/banners_2.jpg', 'assets/img/banners_3.jpg'];
 
   constructor() { }
 

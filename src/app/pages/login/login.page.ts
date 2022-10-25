@@ -3,7 +3,7 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AlertController } from '@ionic/angular';
 import { AuthService } from '../../services/auth.service';
-
+import { Storage } from '@ionic/storage';
 
 @Component({
   selector: 'app-login',
@@ -11,6 +11,8 @@ import { AuthService } from '../../services/auth.service';
   styleUrls: ['./login.page.scss'],
 })
 export class LoginPage implements OnInit {
+
+  typeUx: string;
 
   slideOpts = {
     initialSlide: 1,
@@ -20,9 +22,9 @@ export class LoginPage implements OnInit {
     autoplay: {
       delay: 4000
     }
-  }
+  };
 
-  banners: string[] = ["assets/img/banners_1.jpg", "assets/img/banners_2.jpg", "assets/img/banners_3.jpg"]
+  banners: string[] = ['assets/img/banners_1.jpg', 'assets/img/banners_2.jpg', 'assets/img/banners_3.jpg'];
 
   form = this.formBuilder.group({
     email: ['', [Validators.email, Validators.required]],
@@ -30,10 +32,20 @@ export class LoginPage implements OnInit {
 
   });
 
-  constructor(private alertController: AlertController , private router: Router, private auth: AuthService, private formBuilder: FormBuilder) { }
+  constructor(
+    private storage: Storage,
+    private alertController: AlertController ,
+    private router: Router,
+    private auth: AuthService,
+    private formBuilder: FormBuilder) { }
 
   ngOnInit() {
+    this.getTypeUx();
   }
+  async getTypeUx() {
+    // await console.log(this.storage.get('typeUx'));
+  }
+
   async login() {
     if (this.form.valid) {
       const { email, password } = this.form.getRawValue();
