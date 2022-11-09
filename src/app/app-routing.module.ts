@@ -108,6 +108,10 @@ const routes: Routes = [
   {
     path: 'recoverpass',
     loadChildren: () => import('./pages/recoverpass/recoverpass.module').then( m => m.RecoverpassPageModule)
+  },
+  {
+    path: 'admin-news',
+    loadChildren: () => import('./pages/admin-news/admin-news.module').then( m => m.AdminNewsPageModule)
   }
 ];
 

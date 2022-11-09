@@ -3,6 +3,8 @@ import { ActivatedRoute } from '@angular/router';
 import { FormBuilder, Validators } from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
 import { AlertController } from '@ionic/angular';
+import { DatabaseService } from 'src/app/services/database.service';
+import { User } from 'src/app/shared/User';
 
 @Component({
   selector: 'app-register',
@@ -13,7 +15,10 @@ import { AlertController } from '@ionic/angular';
 
 export class RegisterPage implements OnInit {
 
-  user = [];
+  user: User;
+  name = '';
+  email = '';
+  pass = '';
   typeUx: string;
 
   slideOpts = {
@@ -37,13 +42,12 @@ export class RegisterPage implements OnInit {
 
   constructor(
     // public usr: User,
+    private dataService: DatabaseService,
     private route: ActivatedRoute,
     private formBuilder: FormBuilder,
     private alertController: AlertController,
     private authService: AuthService) {
       this.typeUx = this.route.snapshot.paramMap.get('typeUser');
-      // usr.typeUx = this.typeUx;
-      // console.log(this.typeUx);
 
      }
 
@@ -52,10 +56,11 @@ export class RegisterPage implements OnInit {
     try {
 
       if(this.form.valid) {
-        const { email, password } = this.form.getRawValue();
-        this.authService.createUser();
-        // this.authService.saveUser(this.user);
-        this.authService.register( email, password);
+        
+        /* const { name, email, password } = this.form.getRawValue(); */
+        /* this.authService.createUserRtDB(); */
+        this.authService.register( this.email, this.pass, this.name);
+        
       } else {
         const alert = this.alertController.create({
           message: 'Uno o más datos estan incorrectos!',

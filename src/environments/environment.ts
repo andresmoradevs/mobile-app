@@ -4,13 +4,14 @@
 
 export const environment = {
   firebase: {
-    projectId: 'xmobile-appx',
-    appId: '1:1037618101863:web:2967525015f7787e899ec2',
-    storageBucket: 'xmobile-appx.appspot.com',
-    apiKey: 'AIzaSyBpSa6IJlAWOPa33N44cpGx-s03cHQ2c1Q',
-    authDomain: 'xmobile-appx.firebaseapp.com',
-    messagingSenderId: '1037618101863',
-    measurementId: 'G-5Z3M5TVYER',
+    apiKey: "AIzaSyDaGwd_zO2k52waKMKnhodAQisSRaLiers",
+    authDomain: "getsoftware-co.firebaseapp.com",
+    databaseURL: "https://getsoftware-co-default-rtdb.firebaseio.com",
+    projectId: "getsoftware-co",
+    storageBucket: "getsoftware-co.appspot.com",
+    messagingSenderId: "832465348436",
+    appId: "1:832465348436:web:12633c4364e23eb79e4ac1",
+    measurementId: "G-W53ZB4X1JN"
   },
   production: false
 };

@@ -1,8 +1,10 @@
 export class User {
-  email: string;
-  idUx: string;
-  lastName?: string;
-  name?: string;
-  phone?: string;
-  typeUx?: string;
+  email?: string | null;
+  idUx?: string | null;
+  lastName?: string | null;
+  name?: string | null;
+  years?: string | null;
+  phone?: string | null;
+  typeUx?: string | null;
+  pass: string | null;
 }

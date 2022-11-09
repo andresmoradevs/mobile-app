@@ -9,6 +9,9 @@
 
 <ion-content>
   <ion-grid>
+    <form>
+
+    
     <ion-row>
       <ion-col style="text-align: -webkit-center;">
         <ion-avatar>
@@ -19,7 +22,7 @@
     <ion-row>
       <ion-item class="labels-profile">
         <ion-label color="medium">Nombre</ion-label>
-        <ion-input placeholder="Pedro"></ion-input>
+        <ion-input placeholder="Nombre"></ion-input>
       </ion-item>
     </ion-row>
     <ion-row>
@@ -43,8 +46,9 @@
     <ion-row>
       <ion-buttons>
         <ion-button color="secondary">Editar</ion-button>
-        <ion-button color="success">Guardar</ion-button>
+        <ion-button (click)="saveInfoUser()" color="success">Guardar</ion-button>
       </ion-buttons>
     </ion-row>
+  </form>
   </ion-grid>
 </ion-content>

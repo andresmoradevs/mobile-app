@@ -17,26 +17,19 @@
 
       <ion-item style="width: 60%;">
         <ion-label position="stacked">Nombre</ion-label>
-        <ion-input placeholder="Ingresar aqui el nombre" formControlName="name"></ion-input>
+        <ion-input [(ngModel)]="name" placeholder="Ingresar aqui el nombre" formControlName="name"></ion-input>
       </ion-item>
 
       <ion-item style="width: 60%;">
         <ion-label position="stacked">Usuario</ion-label>
-        <ion-input placeholder="usuario@mail.com" formControlName="email"></ion-input>
+        <ion-input [(ngModel)]="email" placeholder="usuario@mail.com" formControlName="email"></ion-input>
       </ion-item>
 
       <ion-item style="width: 60%;">
         <ion-label position="stacked">Contraseña</ion-label>
-        <ion-input type="password" placeholder="**********" formControlName="password"></ion-input>
+        <ion-input [(ngModel)]="pass" type="password" placeholder="**********" formControlName="password"></ion-input>
       </ion-item>
-
-      <!-- <ion-item style="width: 60%;">
-        <ion-label position="stacked">Confirmar Contraseña</ion-label>
-        <ion-input type="password" placeholder="**********" formControlName="confirmPassword"></ion-input>
-      </ion-item> -->
-      <br>
-      <br>
-      <!-- <ion-item-divider></ion-item-divider> -->
+      
       <ion-button type="submit" >Registrarse</ion-button>
       <ion-button routerLink="/login/{{ typeUx }}" type="button">Ya estoy registrado</ion-button>
     </ion-list>
