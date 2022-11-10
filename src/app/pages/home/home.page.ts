@@ -1,4 +1,6 @@
+import { ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
+import { User } from 'src/app/shared/User';
 
 @Component({
   selector: 'app-home',
@@ -16,10 +18,22 @@ export class HomePage implements OnInit {
       delay: 4000
     }
   };
+  user: User = {
+    email : '',
+    name: '',
+    lastName: '',
+    years: '',
+    pass: '',
+    typeUx: '',
+    idUx: '',
+    phone: ''
+  };
 
   banners: string[] = ['assets/img/banners_1.jpg', 'assets/img/banners_2.jpg', 'assets/img/banners_3.jpg'];
 
-  constructor() { }
+  constructor(private route: ActivatedRoute) {
+    //this.user = this.route.snapshot.paramMap.get('typeUser');
+   }
 
   ngOnInit() {
   }

@@ -1,3 +1,4 @@
+import { AngularFireDatabase } from '@angular/fire/compat/database';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { FormBuilder, Validators } from '@angular/forms';
@@ -17,9 +18,11 @@ export class RegisterPage implements OnInit {
 
   user: User;
   name = '';
+  lastName = '';
   email = '';
-  pass = '';
-  typeUx: string;
+  password = '';
+  years = '';
+  typeUx = '';
 
   slideOpts = {
     initialSlide: 1,
@@ -42,6 +45,7 @@ export class RegisterPage implements OnInit {
 
   constructor(
     // public usr: User,
+    public db: AngularFireDatabase,
     private dataService: DatabaseService,
     private route: ActivatedRoute,
     private formBuilder: FormBuilder,
@@ -56,11 +60,10 @@ export class RegisterPage implements OnInit {
     try {
 
       if(this.form.valid) {
-        
         /* const { name, email, password } = this.form.getRawValue(); */
         /* this.authService.createUserRtDB(); */
-        this.authService.register( this.email, this.pass, this.name);
-        
+        this.authService.register( this.email, this.password, this.name, this.typeUx);
+
       } else {
         const alert = this.alertController.create({
           message: 'Uno o más datos estan incorrectos!',
@@ -74,5 +77,4 @@ export class RegisterPage implements OnInit {
     }
 
   }
-
 }

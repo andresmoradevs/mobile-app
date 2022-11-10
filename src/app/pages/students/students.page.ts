@@ -56,7 +56,7 @@ export class StudentsPage implements OnInit {
       if(this.form.valid) {
         /* const { name, email, password } = this.form.getRawValue(); */
         /* this.authService.createUserRtDB(); */
-        this.authService.register( this.email, this.password, this.name);
+        this.authService.register( this.email, this.password, this.name, this.typeUx);
 
       } else {
         const alert = this.alertController.create({
@@ -84,7 +84,7 @@ export class StudentsPage implements OnInit {
       newStudent.phone = 'empty';
       newStudent.typeUx = 'empty';
 
-      this.db.list('users/students/').push(newStudent);
+      this.db.list('users/estudiantes/').push(newStudent);
 
       console.log('se agregó el usuario correctamente');
 
@@ -93,7 +93,7 @@ export class StudentsPage implements OnInit {
     }
   }
   getStudents() {
-    this.db.list('users/students/').valueChanges().subscribe(res => {
+    this.db.list('users/estudiantes/').valueChanges().subscribe(res => {
       this.users = res;
     });
   }

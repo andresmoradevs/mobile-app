@@ -13,11 +13,19 @@ import { AlertController } from '@ionic/angular';
 
 export class AuthService {
 
-  user: User;
+  user: User = {
+    email : '',
+    name: '',
+    lastName: '',
+    years: '',
+    pass: '',
+    typeUx: '',
+    idUx: '',
+    phone: ''
+  };
 
   authState$ = authState(this.afAuth);
-  email: any;
-  name: any;
+
 
   constructor(
     private dbFire: AngularFirestore,
@@ -26,28 +34,38 @@ export class AuthService {
     private afAuth: Auth,
     private alertController: AlertController) { }
 
-  async register(email: string, password: string, name: string) {
+  async register(email: string, password: string, name: string, typeUx: string) {
 
-    const user = await createUserWithEmailAndPassword(this.afAuth, email, password);
+    const userR = await createUserWithEmailAndPassword(this.afAuth, email, password);
 
-    const uidKey = user.user.uid;
-    /* this.user.idUx = uidKey; */
-    console.log(uidKey, name);
+    const uidKey = userR.user.uid;
+    const newUser = new User();
 
-    /* this.createUserRtDB(); */
+    newUser.name = name;
+    newUser.lastName = '';
+    newUser.years = '';
+    newUser.email = email;
+    newUser.pass = password;
+    newUser.idUx = uidKey;
+    newUser.phone = '';
+    newUser.typeUx = typeUx;
 
-    this.router.navigate(['/inicio']);
+    this.user.name = newUser.name;
+    this.user.lastName = newUser.lastName;
+    this.user.years = newUser.years;
+    this.user.email = newUser.email;
+    this.user.pass = newUser.pass;
+    this.user.idUx = newUser.idUx;
+    this.user.phone = 'empty';
+    this.user.typeUx = newUser.typeUx;
+
+    //this.dbRt.list('users/'+typeUx+'s'+'/').push(uidKey);
+    this.dbRt.object('users/'+typeUx+'s'+'/'+uidKey+'/').set(newUser);
+
+    console.log('se agregó el usuario correctamente');
+
+    this.router.navigate(['/inicio', this.user]);
     return await signInWithEmailAndPassword(this.afAuth, email, password);
-  }
-
-  createUserRtDB() {
-
-    /* userObj.push(this.user.values); */
-  }
-  createUserFireDB() {
-    /* const usersRefDb = this.dbFire.object('users');
-    const uidKey = this.dbFire.createPushId;
-    usersRefDb.set(uidKey); */
   }
 
   login( email: string, password: string) {

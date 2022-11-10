@@ -1,46 +1,41 @@
+import { AuthService } from './../../services/auth.service';
 import { RegisterPage } from './../register/register.page';
 import { Component, OnInit, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import '@lottiefiles/lottie-player';
 import { Storage } from '@ionic/storage';
 import { NavController } from '@ionic/angular';
 import { Router } from '@angular/router';
+import { User } from 'src/app/shared/User';
 
 @Component({
   selector: 'app-init-page',
   templateUrl: './init.page.html',
   styleUrls: ['./init.page.scss'],
 })
-export class InitPage implements OnInit {
+export class InitPage {
 
   cardGoTo: string;
 
-  user = {
-    email: '',
-    idUx: '',
-    lastName: '',
+  user: User = {
+    email : '',
     name: '',
-    phone: '',
-    typeUx: ''
-  }; //Declaramos un user vacio
+    lastName: '',
+    years: '',
+    pass: '',
+    typeUx: '',
+    idUx: '',
+    phone: ''
+  };//Declaramos un user vacio
 
   constructor(
+    public auth: AuthService,
     private router: Router,
     private navCtrl: NavController,
     private store: Storage
   ) {
-    // this.user.typeUx =
+    this.auth.user = this.user;
+    console.log(this.user.name);
+
   }
 
-  ngOnInit() {
-    // this.store.create();
-  }
-
-  goTo(cardGoTo) {
-    this.cardGoTo = cardGoTo || 'No se encontró tipo de usuario al ingresar';
-    this.router.navigateByUrl('/register', cardGoTo);
-    // this.navCtrl.navigateForward('/register', cardGoTo);
-  }
-  // async setTypeUx() {
-  //   await this.store.set('typeUx', this.cardGoTo);
-  // }
 }

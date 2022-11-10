@@ -1,8 +1,10 @@
+import { AuthService } from './../../services/auth.service';
 import { Component, OnInit } from '@angular/core';
 import { AngularFireDatabase } from '@angular/fire/compat/database';
 import { Observable } from 'rxjs';
 import { DatabaseService } from 'src/app/services/database.service';
 import { News } from 'src/app/shared/News';
+import { User } from 'src/app/shared/User';
 
 @Component({
   selector: 'app-profile',
@@ -11,17 +13,31 @@ import { News } from 'src/app/shared/News';
 })
 export class ProfilePage {
 
-  nameUser: string;
+  user: User = {
+    email : '',
+    name: '',
+    lastName: '',
+    years: '',
+    pass: '',
+    typeUx: '',
+    idUx: '',
+    phone: ''
+  };
   notice: News = new News();
-  suppliedData = false
+  suppliedData = false;
 
-  constructor(public db: AngularFireDatabase) { 
-    
+  constructor(
+    public auth: AuthService,
+    public db: AngularFireDatabase) {
+    const user = new User();
+    this.auth.user = this.user;
+    console.log(''+this.user.name);
+
   }
   saveInfoUser() {
-    console.log(this.nameUser);
-    
+    console.log(this.user);
+
   }
-  
+
 
 }

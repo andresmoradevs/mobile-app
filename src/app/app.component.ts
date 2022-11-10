@@ -1,8 +1,10 @@
+/* eslint-disable @typescript-eslint/member-ordering */
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from './services/auth.service';
 import { filter } from 'rxjs/operators';
 import { AlertController } from '@ionic/angular';
+import { User } from './shared/User';
 
 @Component({
   selector: 'app-root',
@@ -10,6 +12,16 @@ import { AlertController } from '@ionic/angular';
   styleUrls: ['app.component.scss'],
 })
 export class AppComponent {
+  userLogged: User = {
+    email : '',
+    name: '',
+    lastName: '',
+    years: '',
+    pass: '',
+    typeUx: '',
+    idUx: '',
+    phone: ''
+  };
   public appPages = [
     { title: 'Inicio', url: 'inicio', icon: 'home' },
     { title: 'Perfil', url: 'perfil', icon: 'person-circle' },
@@ -27,10 +39,12 @@ export class AppComponent {
 
   constructor(
     private router: Router,
+    private route: ActivatedRoute,
     private alertCtr: AlertController,
-    private auth: AuthService) {}
+    private auth: AuthService) {
+      this.userLogged = this.auth.user;
+    }
 
-  // eslint-disable-next-line @typescript-eslint/member-ordering
   user$ = this.auth.authState$.pipe(
     filter(state => state ? true : false)
   );

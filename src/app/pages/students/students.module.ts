@@ -8,9 +8,12 @@ import { StudentsPageRoutingModule } from './students-routing.module';
 
 import { StudentsPage } from './students.page';
 
+import { SwiperModule } from 'swiper/angular';
+
 @NgModule({
   imports: [
     CommonModule,
+    SwiperModule,
     FormsModule,
     IonicModule,
     StudentsPageRoutingModule,
