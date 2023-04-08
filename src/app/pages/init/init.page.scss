@@ -1,0 +1,25 @@
+ion-content {
+  text-align-last: center;
+}
+ion-row {
+  display: inline-flex;
+  margin-top: 200px;
+}
+ion-card {
+  border-radius: 15px;
+  padding: 0px;
+  text-align: -webkit-center;
+  z-index: 0;
+  width: fit-content;
+}
+.card-text {
+  font-size: 20px;
+  font-weight: bold;
+  position: absolute;
+  z-index: 0;
+  left: 55px;
+  bottom: 4px;
+  padding-bottom: 10px;
+  color: coral;
+}
+
