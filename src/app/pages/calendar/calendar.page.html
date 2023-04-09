@@ -1,9 +1,82 @@
 <ion-header>
   <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>      
+    </ion-buttons>
     <ion-title>Calendario</ion-title>
+    <ion-fab-button slot="end">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-card>
+          <ion-datetime [isDateEnabled]="isWeekday"></ion-datetime>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-card>
+          <ion-list>
+            <ion-item>
+              <ion-datetime-button datetime="datetime"></ion-datetime-button>
+            </ion-item>
+            <ion-item>
+              <ion-datetime-button datetime="datetime"></ion-datetime-button>
+            </ion-item>
+            <ion-item>
+              <ion-datetime-button datetime="datetime"></ion-datetime-button>
+            </ion-item>
+            <ion-item>
+              <ion-datetime-button datetime="datetime"></ion-datetime-button>
+            </ion-item>
+            <ion-item>
+              <ion-datetime-button datetime="datetime"></ion-datetime-button>
+            </ion-item>
+            <ion-modal [keepContentsMounted]="true">
+              <ng-template>
+                <ion-datetime id="datetime"></ion-datetime>
+              </ng-template>
+            </ion-modal>
+          </ion-list>
+        </ion-card>
+      </ion-col>
+      <ion-col>
+        <ion-card>
+          <ion-list>
+            <ion-item>
+              <ion-label>Asignaturas</ion-label>
+              <ion-badge color="primary">22</ion-badge>
+            </ion-item>
+            <ion-item>
+              <ion-label>Estudiantes</ion-label>
+              <ion-badge color="secondary">118</ion-badge>
+            </ion-item>
+            <ion-item>
+              <ion-label>Logros</ion-label>
+              <ion-badge color="tertiary">34</ion-badge>
+            </ion-item>
+            <ion-item>
+              <ion-label>Tareas finalizadas</ion-label>
+              <ion-badge color="success">80</ion-badge>
+            </ion-item>
+            <ion-item>
+              <ion-label>Alertas</ion-label>
+              <ion-badge color="warning">70</ion-badge>
+            </ion-item>
+            <ion-item>
+              <ion-label>Notificaciones</ion-label>
+              <ion-badge color="danger">+100</ion-badge>
+            </ion-item>
+          </ion-list>
+        </ion-card>
+      </ion-col>
+      
+    </ion-row>
+  </ion-grid>
 </ion-content>

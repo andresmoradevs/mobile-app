@@ -31,7 +31,7 @@ export class ProfilePage {
     public db: AngularFireDatabase) {
     const user = new User();
     this.auth.user = this.user;
-    console.log(''+this.user.name);
+    console.log('userData: ' + this.user.name);
 
   }
   saveInfoUser() {

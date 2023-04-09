@@ -26,7 +26,6 @@ export class AuthService {
 
   authState$ = authState(this.afAuth);
 
-
   constructor(
     private dbFire: AngularFirestore,
     private dbRt: AngularFireDatabase,
