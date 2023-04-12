@@ -4,6 +4,11 @@ import { RouteReuseStrategy } from '@angular/router';
 import { IonicStorageModule } from '@ionic/storage-angular';
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { AngularFireModule } from '@angular/fire/compat';
+import { AngularFireAuthModule } from '@angular/fire/compat/auth';
+import { AngularFireStorageModule } from '@angular/fire/compat/storage';
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
+import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
+
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 
@@ -22,6 +27,10 @@ import { SwiperModule } from 'swiper/angular';
     SwiperModule,
     AuthGuardModule,
     AngularFireModule.initializeApp(environment.firebase),
+    AngularFireAuthModule,
+    AngularFireStorageModule,
+    AngularFirestoreModule,
+    AngularFireDatabaseModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideDatabase(() => getDatabase()),
     provideAuth(() => getAuth()),
