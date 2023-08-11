@@ -73,7 +73,7 @@ export class RegisterPage implements OnInit {
       }
     } catch (error) {
       console.log(error);
-
+      
     }
 
   }

@@ -4,14 +4,14 @@
 
 export const environment = {
   firebase: {
-    apiKey: "AIzaSyDaGwd_zO2k52waKMKnhodAQisSRaLiers",
-    authDomain: "getsoftware-co.firebaseapp.com",
-    databaseURL: "https://getsoftware-co-default-rtdb.firebaseio.com",
-    projectId: "getsoftware-co",
-    storageBucket: "getsoftware-co.appspot.com",
-    messagingSenderId: "832465348436",
-    appId: "1:832465348436:web:12633c4364e23eb79e4ac1",
-    measurementId: "G-W53ZB4X1JN"
+    apiKey: "AIzaSyBWOlE-58vVzk2FBBY_GhUtle9H2S39rmM",
+    authDomain: "educa-getsftco.firebaseapp.com",
+    databaseURL: "https://educa-getsftco-default-rtdb.asia-southeast1.firebasedatabase.app",
+    projectId: "educa-getsftco",
+    storageBucket: "educa-getsftco.appspot.com",
+    messagingSenderId: "352457135411",
+    appId: "1:352457135411:web:5acd27f2b09c732f04da46",
+    measurementId: "G-9QD8PE3YZ5"
   },
   production: false
 };

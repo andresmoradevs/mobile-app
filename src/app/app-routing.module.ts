@@ -103,6 +103,8 @@ const routes: Routes = [
   },
   {
     path: 'init',
+    canActivate: [ AuthGuard ],
+    data: { authGuardPipe : redirectLoggedInToHome },
     loadChildren: () => import('./pages/init/init.module').then( m => m.InitPageModule)
   },
   {

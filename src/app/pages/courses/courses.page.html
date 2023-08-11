@@ -1,9 +1,70 @@
 <ion-header>
   <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
     <ion-title>Asignaturas</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-
+  <ion-grid>
+    <ion-row>
+      <ion-segment value="default">
+        <ion-segment-button value="default">
+          <ion-label>Matriculadas</ion-label>
+        </ion-segment-button>
+        <ion-segment-button value="segment">
+          <ion-label>Canceladas</ion-label>
+        </ion-segment-button>
+      </ion-segment>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-card>
+          
+          <ion-list>
+            <!-- The reorder gesture is disabled by default, enable it to drag and drop items -->
+            <!-- Casting $event to $any is a temporary fix for this bug https://github.com/ionic-team/ionic-framework/issues/24245 -->
+            <ion-reorder-group [disabled]="false" (ionItemReorder)="handleReorder($any($event))">
+              <ion-item>
+                <ion-label>
+                  C. Naturales
+                </ion-label>
+                <ion-reorder slot="end"></ion-reorder>
+              </ion-item>
+          
+              <ion-item>
+                <ion-label>
+                  C. Sociales
+                </ion-label>
+                <ion-reorder slot="end"></ion-reorder>
+              </ion-item>
+          
+              <ion-item>
+                <ion-label>
+                  Matematicas
+                </ion-label>
+                <ion-reorder slot="end"></ion-reorder>
+              </ion-item>
+          
+              <ion-item>
+                <ion-label>
+                  Español
+                </ion-label>
+                <ion-reorder slot="end"></ion-reorder>
+              </ion-item>
+          
+              <ion-item>
+                <ion-label>
+                  Ingles
+                </ion-label>
+                <ion-reorder slot="end"></ion-reorder>
+              </ion-item>
+            </ion-reorder-group>
+          </ion-list>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>
