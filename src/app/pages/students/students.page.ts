@@ -36,7 +36,6 @@ export class StudentsPage implements OnInit {
 
   });
 
-
   constructor(
     private db: AngularFireDatabase,
     private dataService: DatabaseService,
@@ -51,8 +50,7 @@ export class StudentsPage implements OnInit {
   ngOnInit() {
   }
   async register() {
-    try {
-
+   
       if(this.form.valid) {
         /* const { name, email, password } = this.form.getRawValue(); */
         /* this.authService.createUserRtDB(); */
@@ -65,13 +63,11 @@ export class StudentsPage implements OnInit {
         });
         (await alert).present();
       }
-    } catch (error) {
-      console.log(error);
-    }
+    
 
   }
 
-  createStudent() {
+  async createStudent() {
     try{
       const newStudent = new User();
 
@@ -82,9 +78,25 @@ export class StudentsPage implements OnInit {
       newStudent.pass = this.password;
       newStudent.idUx = 'empty';
       newStudent.phone = 'empty';
-      newStudent.typeUx = 'empty';
+      newStudent.typeUx = 'estudiante';
+      if(this.form.valid) {
+       
+        this.authService.register( this.email, this.password, this.name, this.typeUx);
 
-      this.db.list('users/estudiantes/').push(newStudent);
+        this.db.list('users/estudiantes/').push(newStudent);
+        const alert = this.alertController.create({
+          message: 'Se registro el estudiante con éxito!',
+          buttons: ['OK'],
+        });
+        (await alert).present();
+
+      } else {
+        const alert = this.alertController.create({
+          message: 'Uno o más datos estan incorrectos!',
+          buttons: ['OK'],
+        });
+        (await alert).present();
+      }
 
       console.log('se agregó el usuario correctamente');
 
@@ -96,6 +108,13 @@ export class StudentsPage implements OnInit {
     this.db.list('users/estudiantes/').valueChanges().subscribe(res => {
       this.users = res;
     });
+  }
+  cleanFields() {
+    this.form.value.name = '';
+    this.form.value.lastName = '';
+    this.form.value.years = '';
+    this.form.value.email = '';
+    this.form.value.password = '';
   }
 
 }

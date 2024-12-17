@@ -36,7 +36,7 @@ const routes: Routes = [
     loadChildren: () => import('./pages/courses/courses.module').then( m => m.CoursesPageModule)
   },
   {
-    path: 'profesores',
+    path: 'docentes',
     canActivate: [ AuthGuard ],
     data: { authGuardPipe : redirectUnauthorizedToLogin },
     loadChildren: () => import('./pages/teachers/teachers.module').then( m => m.TeachersPageModule)
@@ -114,6 +114,10 @@ const routes: Routes = [
   {
     path: 'admin-news',
     loadChildren: () => import('./pages/admin-news/admin-news.module').then( m => m.AdminNewsPageModule)
+  },
+  {
+    path: 'empleados',
+    loadChildren: () => import('./pages/employees/employees.module').then( m => m.EmployeesPageModule)
   }
 ];
 

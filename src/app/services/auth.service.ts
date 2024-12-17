@@ -6,7 +6,6 @@ import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { Router } from '@angular/router';
 import { AlertController } from '@ionic/angular';
 
-
 @Injectable({
   providedIn: 'root'
 })
